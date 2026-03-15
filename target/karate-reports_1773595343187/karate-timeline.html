@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/resources\/wallet-service[1:13]","start":1773595317756,"end":1773595320807,"title":"src\/test\/resources\/wallet-service[1:13] 12:21:57.756-12:22:00.807 1. Registro de Usuarios"},{"id":2,"group":1,"content":"src\/test\/resources\/wallet-service[2:70]","start":1773595320817,"end":1773595321519,"title":"src\/test\/resources\/wallet-service[2:70] 12:22:00.817-12:22:01.519 2. Transferencia de Usuario Emisor a Receptor"},{"id":3,"group":1,"content":"src\/test\/resources\/wallet-service[3:107]","start":1773595321528,"end":1773595321953,"title":"src\/test\/resources\/wallet-service[3:107] 12:22:01.528-12:22:01.953 3. Validar transcerencia a receptor","className":"failed"},{"id":4,"group":1,"content":"src\/test\/resources\/wallet-service[4:131]","start":1773595321960,"end":1773595322006,"title":"src\/test\/resources\/wallet-service[4:131] 12:22:01.960-12:22:02.006 Flujo Administrador","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
